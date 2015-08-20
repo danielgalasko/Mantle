@@ -97,6 +97,21 @@ extern const NSInteger MTLTestModelNameMissing;
 @property (readonly, nonatomic, weak) id weakProperty;
 @property (readonly, nonatomic, strong) id strongProperty;
 
+@property (readonly, nonatomic, strong) id shadowedInSubclass;
+@property (readonly, nonatomic, strong) id declaredInProtocol;
+
+@end
+
+@protocol MTLDateProtocol <NSObject>
+
+@property (readonly, nonatomic, strong) id declaredInProtocol;
+
+@end
+
+@interface MTLStorageBehaviorModelSubclass : MTLStorageBehaviorModel <MTLDateProtocol>
+
+@property (readonly, nonatomic, strong) id shadowedInSubclass;
+
 @end
 
 @interface MTLBoolModel : MTLModel <MTLJSONSerializing>
@@ -152,5 +167,35 @@ extern const NSInteger MTLTestModelNameMissing;
 
 // Associated with the "strawberry_freshness" JSON key.
 @property (readwrite, nonatomic, assign) NSUInteger freshness;
+
+@end
+
+
+@protocol MTLOptionalPropertyProtocol
+
+@optional
+@property (readwrite, nonatomic, strong) id optionalUnimplementedProperty;
+@property (readwrite, nonatomic, strong) id optionalImplementedProperty;
+
+@end
+
+@interface MTLOptionalPropertyModel : MTLModel <MTLOptionalPropertyProtocol>
+
+@property (readwrite, nonatomic, strong) id optionalImplementedProperty;
+
+@end
+
+
+@interface MTLRecursiveUserModel : MTLModel <MTLJSONSerializing>
+
+@property (nonatomic, copy, readonly) NSString *name;
+@property (nonatomic, copy, readonly) NSArray *groups;
+
+@end
+
+@interface MTLRecursiveGroupModel : MTLModel <MTLJSONSerializing>
+
+@property (nonatomic, readonly) MTLRecursiveUserModel *owner;
+@property (nonatomic, readonly) NSArray *users;
 
 @end

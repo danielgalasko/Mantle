@@ -355,6 +355,12 @@ static NSUInteger modelVersion = 1;
 
 @end
 
+@implementation MTLStorageBehaviorModelSubclass
+
+@dynamic shadowedInSubclass;
+
+@end
+
 @implementation MTLMultiKeypathModel
 
 #pragma mark MTLJSONSerializing
@@ -459,6 +465,44 @@ static NSUInteger modelVersion = 1;
 
 - (NSString *)flavor {
 	return @"strawberry";
+}
+
+@end
+
+@implementation MTLOptionalPropertyModel
+
+@end
+
+@implementation MTLRecursiveUserModel
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+		@"name": @"name",
+		@"groups": @"groups",
+	};
+}
+
++ (NSValueTransformer *)groupsJSONTransformer {
+	return [MTLJSONAdapter arrayTransformerWithModelClass:MTLRecursiveGroupModel.class];
+}
+
+@end
+
+@implementation MTLRecursiveGroupModel
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+		@"owner": @"owner",
+		@"users": @"users",
+	};
+}
+
++ (NSValueTransformer *)ownerJSONTransformer {
+	return [MTLJSONAdapter dictionaryTransformerWithModelClass:MTLRecursiveUserModel.class];
+}
+
++ (NSValueTransformer *)usersJSONTransformer {
+	return [MTLJSONAdapter arrayTransformerWithModelClass:MTLRecursiveUserModel.class];
 }
 
 @end
