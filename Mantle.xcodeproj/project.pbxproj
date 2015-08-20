@@ -10,6 +10,7 @@
 		1ED5B5CC163A4E2B0072668E /* MTLComparisonAdditionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED5B5CB163A4E2B0072668E /* MTLComparisonAdditionsSpec.m */; };
 		1ED5B5D0163A4E3C0072668E /* NSObject+MTLComparisonAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ED5B5CE163A4E3C0072668E /* NSObject+MTLComparisonAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1ED5B5D1163A4E3C0072668E /* NSObject+MTLComparisonAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED5B5CF163A4E3C0072668E /* NSObject+MTLComparisonAdditions.m */; };
+		467EE4B51B85E31000D98C6F /* MTLModelJSONTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467EE4B31B85E31000D98C6F /* MTLModelJSONTests.m */; };
 		547AE0FD17882ED100F4437D /* MTLModelValidationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 547AE0FC17882ED100F4437D /* MTLModelValidationSpec.m */; };
 		54803A34178829A800011B39 /* NSError+MTLModelException.m in Sources */ = {isa = PBXBuildFile; fileRef = 54803A31178829A700011B39 /* NSError+MTLModelException.m */; };
 		54803A3B17882CCD00011B39 /* MTLErrorModelExceptionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 54803A3A17882CCD00011B39 /* MTLErrorModelExceptionSpec.m */; };
@@ -152,6 +153,7 @@
 		1ED5B5CB163A4E2B0072668E /* MTLComparisonAdditionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLComparisonAdditionsSpec.m; sourceTree = "<group>"; };
 		1ED5B5CE163A4E3C0072668E /* NSObject+MTLComparisonAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MTLComparisonAdditions.h"; sourceTree = "<group>"; };
 		1ED5B5CF163A4E3C0072668E /* NSObject+MTLComparisonAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MTLComparisonAdditions.m"; sourceTree = "<group>"; };
+		467EE4B31B85E31000D98C6F /* MTLModelJSONTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLModelJSONTests.m; sourceTree = "<group>"; };
 		541B02B31805EC4C000DA87C /* MTLTransformerErrorExamples.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTLTransformerErrorExamples.h; sourceTree = "<group>"; };
 		541B02B41805EC4C000DA87C /* MTLTransformerErrorExamples.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLTransformerErrorExamples.m; sourceTree = "<group>"; };
 		547165A31801977000E734DB /* MTLTransformerErrorHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTLTransformerErrorHandling.h; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 		D0760EC615FFCA3E0060F550 /* Specs */ = {
 			isa = PBXGroup;
 			children = (
+				467EE4B31B85E31000D98C6F /* MTLModelJSONTests.m */,
 				D0E9C3A819F6E5AA000D427D /* SwiftSpec.swift */,
 				88080C1C160A719D00CCABF2 /* MTLArrayManipulationSpec.m */,
 				1ED5B5CB163A4E2B0072668E /* MTLComparisonAdditionsSpec.m */,
@@ -804,6 +807,7 @@
 				D0E9C39F19F6E04B000D427D /* MTLErrorModelExceptionSpec.m in Sources */,
 				D0E9C3A719F6E04B000D427D /* MTLValueTransformerInversionAdditionsSpec.m in Sources */,
 				D0E9C3A219F6E04B000D427D /* MTLModelNSCodingSpec.m in Sources */,
+				467EE4B51B85E31000D98C6F /* MTLModelJSONTests.m in Sources */,
 				D053177F1A168F8B00A5FBE2 /* MTLTestJSONAdapter.m in Sources */,
 				D0E9C39E19F6E04B000D427D /* MTLDictionaryManipulationSpec.m in Sources */,
 				D0E9C39D19F6E04B000D427D /* MTLComparisonAdditionsSpec.m in Sources */,
@@ -1009,6 +1013,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = Mantle/Info.plist;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1054,6 +1059,7 @@
 				);
 				INFOPLIST_FILE = MantleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1070,6 +1076,7 @@
 				);
 				INFOPLIST_FILE = MantleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1086,6 +1093,7 @@
 				);
 				INFOPLIST_FILE = MantleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1101,6 +1109,7 @@
 				);
 				INFOPLIST_FILE = MantleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Profile;
